@@ -2,193 +2,708 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#070b18">
-<meta name="description" content="Lamis Kareche — Computer Engineer specializing in AI, Cybersecurity and Information Systems.">
-<title>Lamis Kareche | AI & Cybersecurity</title>
-<style>
-:root{--bg:#070b18;--panel:#101a30;--cyan:#65f5e2;--blue:#829cff;--text:#f2f6ff;--muted:#a6b3cb;--line:#263652}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:90px}
-body{margin:0;background:var(--bg);color:var(--text);font:16px/1.7 Arial,sans-serif;overflow-x:hidden}
-a{color:inherit;text-decoration:none}
-.wrap{width:min(1100px,90%);margin:auto}
-header{position:sticky;top:0;z-index:10;background:#070b18ed;backdrop-filter:blur(15px);border-bottom:1px solid var(--line)}
-nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
-.logo{font-weight:900;font-size:22px;color:var(--cyan);letter-spacing:2px}
-.links{display:flex;gap:20px;flex-wrap:wrap;font-size:13px;color:var(--muted)}
-.links a:hover{color:var(--cyan)}
-.hero{min-height:650px;display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:35px;padding:70px 0}
-.kicker{color:var(--cyan);font-size:11px;letter-spacing:3px;text-transform:uppercase;font-weight:bold}
-h1{font-size:clamp(45px,7vw,78px);line-height:1.05;letter-spacing:-3px;margin:22px 0}
-.gradient{background:linear-gradient(100deg,var(--cyan),var(--blue),#c4a0ff);background-clip:text;-webkit-background-clip:text;color:transparent}
-h2{line-height:1.25}
-.hero h2{font-size:clamp(19px,2.5vw,27px);font-weight:600}
-p{color:var(--muted)}
-.hero p{max-width:560px}
-.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
-.btn{display:inline-block;padding:12px 18px;border-radius:10px;font-size:13px;font-weight:bold;border:1px solid #354763;transition:.2s}
-.btn:hover{transform:translateY(-3px);border-color:var(--cyan)}
-.primary{background:var(--cyan);color:#07131b;border-color:var(--cyan)}
-.visual{min-height:350px;display:grid;place-items:center;position:relative}
-.orbit{width:min(85%,340px);aspect-ratio:1;border:1px solid #65f5e233;border-radius:50%;display:grid;place-items:center;position:relative;animation:spin 35s linear infinite}
-.orbit:before,.orbit:after{content:"";position:absolute;border:1px solid #829cff35;border-radius:50%;inset:12%}
-.orbit:after{inset:25%;border-color:#65f5e233}
-.core{width:47%;aspect-ratio:1;border-radius:28%;display:grid;place-items:center;background:radial-gradient(circle at 30% 20%,#65f5e238,#172445 60%,#101629);border:1px solid #65f5e277;box-shadow:0 0 65px #65f5e21a;animation:float 5s ease-in-out infinite}
-.core span{font-size:clamp(40px,7vw,64px);font-weight:900;color:var(--cyan);text-shadow:0 0 25px #65f5e255}
-.float{position:absolute;background:#111b31;border:1px solid #344361;border-radius:11px;padding:10px 13px;font-size:11px;box-shadow:0 10px 35px #0005}
-.float strong{display:block;color:var(--cyan)}
-.f1{top:10%;right:0}.f2{bottom:14%;left:0}.f3{bottom:4%;right:0}
-section{padding:65px 0}
-.section-title{font-size:clamp(29px,4vw,42px);letter-spacing:-1px;margin:8px 0}
-.desc{max-width:680px;margin-bottom:28px}
-.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
-.card{background:linear-gradient(145deg,#111d34e8,#0c1325e8);border:1px solid var(--line);border-radius:18px;padding:24px;transition:.25s}
-.card:hover{transform:translateY(-4px);border-color:#65f5e277}
-.card h3{margin:8px 0;color:#f0f5ff;font-size:18px}
-.card p{font-size:14px;margin-bottom:0}
-.icon{width:43px;height:43px;display:grid;place-items:center;border-radius:12px;background:#65f5e212;border:1px solid #65f5e229;color:var(--cyan);font-size:21px}
-.tag{display:inline-block;border:1px solid #31405b;border-radius:30px;padding:5px 10px;margin:4px;font-size:11px;color:#c5d5ee}
-.timeline{border-left:1px solid #65f5e255;margin:24px 0 0 7px;padding-left:25px}
-.timeline .card{position:relative;margin-bottom:18px}
-.timeline .card:before{content:"";position:absolute;width:9px;height:9px;background:var(--cyan);border-radius:50%;left:-30px;top:28px;box-shadow:0 0 13px #65f5e2}
-.date{color:var(--cyan);font-size:12px;font-weight:bold;letter-spacing:1px}
-.contact{text-align:center;padding:48px 24px;background:radial-gradient(ellipse at top,#183051,#10182b 65%);border:1px solid var(--line);border-radius:24px}
-footer{padding:28px 0;border-top:1px solid var(--line);color:var(--muted);font-size:12px;margin-top:60px}
-.footer-inner{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
-.reveal{opacity:0;transform:translateY(18px);transition:opacity .7s,transform .7s}
-.reveal.show{opacity:1;transform:none}
-@keyframes spin{to{transform:rotate(360deg)}}
-@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
-@media(max-width:720px){.hero{grid-template-columns:1fr;padding:55px 0 30px;gap:15px}.visual{min-height:320px}.grid{grid-template-columns:1fr}.links{gap:12px;font-size:12px}.nav{padding:12px 0}.hero h1{letter-spacing:-2px}.section{padding:48px 0}.float{font-size:10px}.f1{right:0}.f2{left:0}}
-@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;scroll-behavior:auto!important;transition:none!important}.reveal{opacity:1;transform:none}}
-</style>
-</head>
-<body>
-<header>
-<div class="wrap">
-<nav>
-<a class="logo" href="#home">LK<span style="color:#fff">.</span></a>
-<div class="links">
-<a href="#about">About</a>
-<a href="#expertise">Expertise</a>
-<a href="#experience">Experience</a>
-<a href="#education">Education</a>
-<a href="#contact">Contact</a>
-</div>
-</nav>
-</div>
-</header>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080d1c">
+  <meta name="description" content="Lamis Kareche — Computer Engineer specializing in Information Systems, with interests in Artificial Intelligence, Cybersecurity and Financial Systems Security.">
+  <title>Lamis Kareche | AI & Cybersecurity</title>
 
-<main class="wrap" id="home">
-<div class="hero">
-<div class="reveal">
-<div class="kicker">Digital Future · Secure Intelligence</div>
-<h1>Lamis<br><span class="gradient">Kareche.</span></h1>
-<h2>Computer Engineer<br><span class="gradient">AI & Cybersecurity Researcher</span></h2>
-<p>Exploring the intersection of artificial intelligence, cybersecurity and information systems to advance secure, reliable and intelligent digital solutions.</p>
-<div class="actions">
-<a class="btn primary" href="#experience">Explore My Profile ↗</a>
-<a class="btn" href="#contact">Professional Contact</a>
-</div>
-<div style="margin-top:25px">
-<span class="tag">Algiers, Algeria</span>
-<span class="tag">Information Systems</span>
-<span class="tag">AI & Security</span>
-</div>
-</div>
+  <style>
+    :root {
+      --bg: #080d1c;
+      --panel: #101a30;
+      --text: #f3f6ff;
+      --muted: #a8b4ce;
+      --cyan: #65e7f5;
+      --violet: #a99aff;
+      --line: rgba(148,174,220,.2);
+      --width: 1120px;
+    }
 
-<div class="visual reveal" aria-label="Abstract digital technology graphic">
-<div class="orbit"><div class="core"><span>AI</span></div></div>
-<div class="float f1"><strong>01 / INTELLIGENCE</strong>Artificial Intelligence</div>
-<div class="float f2"><strong>02 / PROTECTION</strong>Cybersecurity</div>
-<div class="float f3"><strong>03 / SYSTEMS</strong>Digital Innovation</div>
-</div>
-</div>
+    * { box-sizing: border-box; }
 
-<section id="about" class="reveal">
-<div class="kicker">01 / Professional Identity</div>
-<h2 class="section-title">Engineering with <span class="gradient">Purpose.</span></h2>
-<p class="desc">I am an Algerian computer engineer with experience in information systems and digital modernization in the social security sector. My professional interests span artificial intelligence, cybersecurity, data protection and analytical approaches to complex systems.</p>
-<div class="grid">
-<div class="card"><div class="icon">⌘</div><h3>Systems Thinking</h3><p>Understanding technical environments, analyzing needs and improving the reliability of information systems.</p></div>
-<div class="card"><div class="icon">◎</div><h3>Responsible Innovation</h3><p>Exploring how intelligent technologies can support secure, dependable and useful digital services.</p></div>
-</div>
-</section>
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 85px;
+    }
 
-<section id="expertise" class="reveal">
-<div class="kicker">02 / Technical Focus</div>
-<h2 class="section-title">Areas of <span class="gradient">Expertise.</span></h2>
-<p class="desc">A multidisciplinary foundation connecting computing, security and digital transformation.</p>
-<div class="grid">
-<div class="card"><div class="icon">✳</div><h3>Artificial Intelligence</h3><p>Interest in applied AI, analytical methods and intelligent decision-support systems.</p><div class="tag-list"><span class="tag">Applied AI</span><span class="tag">Data Analytics</span></div></div>
-<div class="card"><div class="icon">⌑</div><h3>Cybersecurity</h3><p>Focus on system protection, information security, risk awareness and data confidentiality.</p><div class="tag-list"><span class="tag">Security</span><span class="tag">Data Protection</span></div></div>
-<div class="card"><div class="icon">⌘</div><h3>Information Systems</h3><p>Experience supporting IT environments, troubleshooting and maintaining service continuity.</p><div class="tag-list"><span class="tag">IT Systems</span><span class="tag">Reliability</span></div></div>
-<div class="card"><div class="icon">↗</div><h3>Digital Transformation</h3><p>Contributing to modernization, technical needs analysis and improvements in digital services.</p><div class="tag-list"><span class="tag">Modernization</span><span class="tag">Digital Services</span></div></div>
-</div>
-</section>
+    body {
+      margin: 0;
+      background:
+        radial-gradient(ellipse at 85% 5%, #28205b 0, transparent 35%),
+        radial-gradient(ellipse at 5% 45%, #0b303e 0, transparent 32%),
+        var(--bg);
+      color: var(--text);
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+      line-height: 1.7;
+      overflow-wrap: anywhere;
+    }
 
-<section id="experience" class="reveal">
-<div class="kicker">03 / Professional Journey</div>
-<h2 class="section-title">Experience & <span class="gradient">Impact.</span></h2>
-<div class="timeline">
-<div class="card">
-<div class="date">2022 — PRESENT</div>
-<h3>IT Engineer — Information Systems & Modernization</h3>
-<p><strong style="color:#eaf0ff">CASNOS — National Social Security Fund for Non-Salaried Workers</strong><br>Algiers West Regional Directorate, Algeria</p>
-<p>Contributing to information-system administration and modernization, technical support, functional and technical needs analysis, data management, service availability, IT security and service continuity.</p>
-</div>
-</div>
-</section>
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-<section id="education" class="reveal">
-<div class="kicker">04 / Academic Foundation</div>
-<h2 class="section-title">Education & <span class="gradient">Learning.</span></h2>
-<div class="grid">
-<div class="card"><div class="date">MASTER'S DEGREE</div><h3>Internet Professions</h3><p>Computer Science — specialization in Métiers d’Internet.</p></div>
-<div class="card"><div class="date">2019 — 2021</div><h3>Master's Degree in Social Security Information Systems Management</h3><p>École Supérieure de la Sécurité Sociale, Algiers.</p></div>
-<div class="card"><div class="date">2012 — 2017</div><h3>Computer Science Studies</h3><p>Université Hadj Lakhdar, Batna, Algeria.</p></div>
-<div class="card"><div class="date">2023 — PRESENT</div><h3>Law Studies</h3><p>Université d’Alger, Algeria.</p></div>
-</div>
-</section>
+    .wrap {
+      width: min(var(--width), calc(100% - 40px));
+      margin: auto;
+    }
 
-<section id="contact" class="reveal">
-<div class="contact">
-<div class="kicker">05 / Connect</div>
-<h2 class="section-title">Building a <span class="gradient">Secure Future.</span></h2>
-<p>Open to international professional opportunities, knowledge exchange and meaningful collaboration in technology.</p>
-<div class="actions" style="justify-content:center">
-<a class="btn primary" href="https://github.com/sifouyasifouya-web" target="_blank" rel="noopener noreferrer">Visit My GitHub ↗</a>
-</div>
-</div>
-</section>
-</main>
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(8,13,28,.92);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--line);
+    }
 
-<footer>
-<div class="wrap footer-inner">
-<span>© 2026 Lamis Kareche</span>
-<span>Artificial Intelligence · Cybersecurity · Information Systems</span>
-</div>
-</footer>
+    nav {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
 
-<script>
-(function(){
-  const items=document.querySelectorAll('.reveal');
-  if(!('IntersectionObserver' in window)){
-    items.forEach(el=>el.classList.add('show'));
-    return;
-  }
-  const observer=new IntersectionObserver(entries=>{
-    entries.forEach(entry=>{
-      if(entry.isIntersecting){
-        entry.target.classList.add('show');
-        observer.unobserve(entry.target);
+    .brand {
+      font-size: .95rem;
+      font-weight: 850;
+      letter-spacing: .1em;
+      white-space: nowrap;
+    }
+
+    .brand span { color: var(--cyan); }
+
+    .navlinks {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      color: var(--muted);
+      font-size: .88rem;
+    }
+
+    .navlinks a:hover { color: var(--cyan); }
+
+    .button {
+      display: inline-block;
+      border: 1px solid rgba(101,231,245,.45);
+      border-radius: 999px;
+      padding: 11px 19px;
+      font-weight: 750;
+      transition: .2s;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      background: rgba(101,231,245,.1);
+    }
+
+    .primary {
+      background: linear-gradient(110deg,var(--cyan),var(--violet));
+      color: #080d1c;
+      border: 0;
+    }
+
+    .hero {
+      min-height: 660px;
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      align-items: center;
+      gap: 35px;
+      padding-top: 65px;
+      padding-bottom: 65px;
+    }
+
+    .eyebrow, .kicker {
+      color: var(--cyan);
+      font-size: .78rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .15em;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 8px 13px;
+      background: rgba(101,231,245,.05);
+    }
+
+    h1 {
+      font-size: clamp(3.5rem, 8vw, 6rem);
+      letter-spacing: -.065em;
+      line-height: 1;
+      margin: 25px 0 20px;
+    }
+
+    .gradient {
+      background: linear-gradient(100deg,var(--cyan),#b3b7ff,var(--violet));
+      color: transparent;
+      background-clip: text;
+      -webkit-background-clip: text;
+    }
+
+    .role {
+      font-size: clamp(1.05rem,2.4vw,1.3rem);
+      font-weight: 650;
+      color: #dbe5ff;
+      line-height: 1.5;
+    }
+
+    .intro, .muted, .section-head p, .card p,
+    .timeline-item p, .timeline-item li, .edu-card p {
+      color: var(--muted);
+    }
+
+    .intro { max-width: 620px; }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 13px;
+      margin-top: 28px;
+    }
+
+    .orb-area {
+      display: grid;
+      place-items: center;
+      min-height: 370px;
+    }
+
+    .orb {
+      width: min(320px,75vw);
+      aspect-ratio: 1;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      position: relative;
+      background: radial-gradient(circle,rgba(101,231,245,.15),rgba(169,154,255,.08) 50%,transparent 72%);
+      border: 1px solid rgba(101,231,245,.4);
+      box-shadow: 0 0 80px rgba(105,111,255,.12), inset 0 0 60px rgba(101,231,245,.08);
+    }
+
+    .orb::before, .orb::after {
+      content: "";
+      position: absolute;
+      inset: 8%;
+      border: 1px solid rgba(101,231,245,.4);
+      border-radius: 50%;
+      transform: rotateX(65deg) rotateZ(-30deg);
+    }
+
+    .orb::after {
+      inset: 0;
+      border-color: rgba(169,154,255,.65);
+      transform: rotateX(65deg) rotateZ(40deg);
+    }
+
+    .core {
+      width: 115px;
+      height: 115px;
+      display: grid;
+      place-items: center;
+      border-radius: 30px;
+      background: linear-gradient(135deg,var(--cyan),var(--violet));
+      color: #080d1c;
+      font-size: 2rem;
+      font-weight: 900;
+      box-shadow: 0 0 55px rgba(101,231,245,.28);
+      transform: rotate(-8deg);
+    }
+
+    .float-tag {
+      position: absolute;
+      z-index: 1;
+      background: #101a30;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 9px 12px;
+      font-size: .75rem;
+      font-weight: 700;
+    }
+
+    .tag-one { top: 12%; left: -6%; }
+    .tag-two { top: 37%; right: -9%; }
+    .tag-three { bottom: 12%; left: 1%; }
+
+    section { padding: 76px 0; }
+
+    .section-head {
+      max-width: 730px;
+      margin-bottom: 32px;
+    }
+
+    h2 {
+      font-size: clamp(2rem,5vw,3.2rem);
+      letter-spacing: -.045em;
+      line-height: 1.15;
+      margin: 10px 0 14px;
+    }
+
+    h3 {
+      font-size: 1.08rem;
+      line-height: 1.45;
+      margin: 13px 0 8px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3,minmax(0,1fr));
+      gap: 17px;
+    }
+
+    .card, .edu-card, .timeline-item, .skill-row {
+      border: 1px solid var(--line);
+      background: linear-gradient(145deg,rgba(20,32,60,.9),rgba(12,19,38,.88));
+      border-radius: 18px;
+      padding: 23px;
+    }
+
+    .card {
+      transition: transform .2s,border-color .2s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(101,231,245,.5);
+    }
+
+    .symbol {
+      color: var(--cyan);
+      font-size: 1.6rem;
+    }
+
+    .card p { font-size: .93rem; margin-bottom: 0; }
+
+    .timeline {
+      border-left: 1px solid var(--cyan);
+      margin-left: 9px;
+      padding-left: 25px;
+    }
+
+    .timeline-item { position: relative; }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -32px;
+      top: 27px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--cyan);
+      box-shadow: 0 0 15px var(--cyan);
+    }
+
+    .meta {
+      color: var(--cyan);
+      font-size: .82rem;
+      font-weight: 750;
+    }
+
+    .timeline-item ul { padding-left: 20px; }
+
+    .education-grid {
+      display: grid;
+      grid-template-columns: repeat(2,minmax(0,1fr));
+      gap: 17px;
+    }
+
+    .edu-card h3 { margin-top: 10px; }
+
+    .skill-layout {
+      display: grid;
+      grid-template-columns: .75fr 1.25fr;
+      gap: 30px;
+      align-items: start;
+    }
+
+    .skill-groups { display: grid; gap: 14px; }
+
+    .skill-row strong {
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .chip {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 5px 10px;
+      color: #d1dcf4;
+      font-size: .8rem;
+      background: rgba(255,255,255,.025);
+    }
+
+    .language-list {
+      max-width: 650px;
+    }
+
+    .language {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .language span:last-child {
+      text-align: right;
+      color: var(--muted);
+    }
+
+    .contact-panel {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+      padding: clamp(25px,5vw,48px);
+      border: 1px solid rgba(101,231,245,.3);
+      border-radius: 24px;
+      background: linear-gradient(130deg,#14213b,#0c1328);
+    }
+
+    .contact-panel p { color: var(--muted); }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 25px 0 35px;
+      color: #8996b0;
+      font-size: .85rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    @media (max-width: 820px) {
+      .navlinks { gap: 12px; }
+      .navlinks a:not(.nav-cta) { display: none; }
+      .hero { grid-template-columns: 1fr; padding-top: 55px; }
+      .orb-area { min-height: 320px; }
+      .cards { grid-template-columns: repeat(2,minmax(0,1fr)); }
+      .skill-layout { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 560px) {
+      .wrap { width: calc(100% - 30px); }
+      nav { min-height: 65px; }
+      .brand { font-size: .78rem; }
+      .nav-cta { padding: 8px 12px; font-size: .8rem; }
+      .hero { min-height: auto; padding: 48px 0; }
+      h1 { font-size: clamp(3rem,15vw,4.4rem); }
+      .orb { width: 245px; }
+      .core { width: 90px; height: 90px; font-size: 1.6rem; }
+      .float-tag { font-size: .66rem; padding: 7px 9px; }
+      .tag-one { left: -2%; }
+      .tag-two { right: -5%; }
+      .cards, .education-grid { grid-template-columns: 1fr; }
+      section { padding: 57px 0; }
+      .contact-panel { align-items: flex-start; flex-direction: column; }
+      .language { font-size: .9rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        transition: none !important;
       }
-    });
-  },{threshold:0.12});
-  items.forEach(el=>observer.observe(el));
-})();
-</script>
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav class="wrap" aria-label="Main navigation">
+      <a class="brand" href="#home">LAMIS<span>.</span>KARECHE</a>
+      <div class="navlinks">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#expertise">Expertise</a>
+        <a href="#education">Education</a>
+        <a class="button" href="#contact">Contact ↗</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero wrap" id="home">
+      <div>
+        <div class="eyebrow">✦ Technology · Security · Intelligence</div>
+        <h1>Lamis<br><span class="gradient">Kareche.</span></h1>
+        <p class="role">Computer Engineer | AI &amp; Cybersecurity Researcher | Financial Systems Security</p>
+        <p class="intro">
+          Bridging intelligent technologies, secure information systems,
+          and data-driven decision-making. Focused on the intersection of
+          Artificial Intelligence, Cybersecurity, and financial infrastructure.
+        </p>
+        <div class="hero-actions">
+          <a class="button primary" href="#experience">Explore My Profile ↘</a>
+          <a class="button" href="mailto:lamiskareche5@gmail.com">Get in Touch ↗</a>
+        </div>
+      </div>
+
+      <div class="orb-area" aria-label="Abstract artificial intelligence visual">
+        <div class="orb">
+          <div class="core">LK</div>
+          <div class="float-tag tag-one">AI / DATA</div>
+          <div class="float-tag tag-two">CYBER DEFENSE</div>
+          <div class="float-tag tag-three">FINANCIAL SYSTEMS</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="kicker">01 / Professional Profile</div>
+          <h2>Technology with a wider perspective.</h2>
+          <p>
+            Algerian Computer Engineer with professional experience in
+            information systems and IT modernization within the social
+            security sector. My academic background combines Computer
+            Science, Social Security Information Systems Management, and
+            ongoing legal studies, supporting a multidisciplinary
+            perspective on technology, data protection, and regulation.
+          </p>
+        </div>
+
+        <div class="cards">
+          <article class="card">
+            <div class="symbol">⌘</div>
+            <h3>Information Systems</h3>
+            <p>Systems administration, requirements analysis, digitalization, maintenance, and reliable institutional IT services.</p>
+          </article>
+          <article class="card">
+            <div class="symbol">⌁</div>
+            <h3>AI &amp; Data Intelligence</h3>
+            <p>Professional interests in machine learning, predictive analytics, anomaly detection, and intelligent decision support.</p>
+          </article>
+          <article class="card">
+            <div class="symbol">◇</div>
+            <h3>Security &amp; Trust</h3>
+            <p>Focus on cyber defense, system protection, financial infrastructure security, and responsible data governance.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="kicker">02 / Experience</div>
+          <h2>Professional Experience</h2>
+          <p>Supporting secure, dependable information systems and institutional modernization.</p>
+        </div>
+
+        <div class="timeline">
+          <article class="timeline-item">
+            <div class="meta">2022 — PRESENT · ALGIERS, ALGERIA</div>
+            <h3>IT Engineer — Information Systems &amp; Modernization</h3>
+            <p>
+              <strong>CASNOS</strong> — National Social Security Fund for
+              Non-Salaried Workers<br>
+              Algiers West Regional Directorate
+            </p>
+            <ul>
+              <li>Support the administration, development, and maintenance of information systems.</li>
+              <li>Contribute to IT modernization and digital transformation initiatives.</li>
+              <li>Provide technical support and troubleshoot IT system issues.</li>
+              <li>Support system availability, reliability, and operational continuity.</li>
+              <li>Participate in functional and technical requirements analysis.</li>
+              <li>Contribute to digital-tool improvement and data management.</li>
+              <li>Support information security and collaborate with technical and administrative teams.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="expertise">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="kicker">03 / Capabilities</div>
+          <h2>Areas of Expertise</h2>
+          <p>A technical foundation shaped by systems thinking, data, and security.</p>
+        </div>
+
+        <div class="cards">
+          <article class="card">
+            <div class="symbol">✳</div>
+            <h3>Artificial Intelligence</h3>
+            <p>Machine learning fundamentals, classification, predictive analytics, intelligent systems, and AI-assisted decision support.</p>
+          </article>
+          <article class="card">
+            <div class="symbol">⛨</div>
+            <h3>Cybersecurity</h3>
+            <p>Information and network security fundamentals, threat analysis, risk awareness, cyber defense, and data protection.</p>
+          </article>
+          <article class="card">
+            <div class="symbol">▦</div>
+            <h3>Data &amp; Analytics</h3>
+            <p>Data processing, databases, statistical analysis, data structures, and data-oriented programming.</p>
+          </article>
+          <article class="card">
+            <div class="symbol">⌘</div>
+            <h3>Information Systems</h3>
+            <p>Systems administration, requirements analysis, software development, maintenance, and digital transformation.</p>
+          </article>
+          <article class="card">
+            <div class="symbol">◈</div>
+            <h3>Financial Technology</h3>
+            <p>Financial data analysis, risk analysis concepts, algorithmic analysis, and financial systems security.</p>
+          </article>
+          <article class="card">
+            <div class="symbol">§</div>
+            <h3>Data Governance &amp; Law</h3>
+            <p>Interest in data protection, digital regulation, technology law, intellectual property, and compliance frameworks.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="kicker">04 / Education</div>
+          <h2>Academic Background</h2>
+          <p>Computing, social security information systems, and legal studies.</p>
+        </div>
+
+        <div class="education-grid">
+          <article class="edu-card">
+            <div class="meta">2023 — PRESENT</div>
+            <h3>Law Studies</h3>
+            <p><strong>University of Algiers · Algeria</strong></p>
+            <p>Private International Law, Civil Law, Conflict of Laws, Family and Inheritance Law, Intellectual Property, Insurance Law, and Digital Regulation.</p>
+          </article>
+
+          <article class="edu-card">
+            <div class="meta">2019 — 2021</div>
+            <h3>Master’s Degree in Social Security Information Systems Management</h3>
+            <p><strong>Higher School of Social Security · Algiers</strong></p>
+            <p>Information Systems Management, Data Management, Digitalization, Institutional Systems, Process Analysis, and Information Technologies.</p>
+          </article>
+
+          <article class="edu-card">
+            <div class="meta">2012 — 2017</div>
+            <h3>Computer Science — Internet &amp; Multimedia</h3>
+            <p><strong>Hadj Lakhdar University · Batna</strong></p>
+            <p>Software Development, Web Technologies, Information Systems, Databases, Algorithms, Networks, and Multimedia Technologies.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="wrap skill-layout">
+        <div>
+          <div class="kicker">05 / Technical Toolkit</div>
+          <h2>Skills &amp; Tools</h2>
+          <p class="muted">A technical toolkit for systems, analysis, and secure digital solutions.</p>
+          <div class="chips">
+            <span class="chip">Python</span>
+            <span class="chip">Git</span>
+            <span class="chip">GitHub</span>
+            <span class="chip">Linux</span>
+            <span class="chip">Streamlit</span>
+          </div>
+        </div>
+
+        <div class="skill-groups">
+          <div class="skill-row">
+            <strong>Programming &amp; Development</strong>
+            <div class="chips">
+              <span class="chip">Python</span>
+              <span class="chip">Algorithms</span>
+              <span class="chip">Web Development</span>
+              <span class="chip">Software Development</span>
+            </div>
+          </div>
+          <div class="skill-row">
+            <strong>Data &amp; AI</strong>
+            <div class="chips">
+              <span class="chip">Data Processing</span>
+              <span class="chip">Statistical Analysis</span>
+              <span class="chip">Machine Learning Fundamentals</span>
+              <span class="chip">Anomaly Detection Concepts</span>
+            </div>
+          </div>
+          <div class="skill-row">
+            <strong>Systems &amp; Security</strong>
+            <div class="chips">
+              <span class="chip">Information Systems</span>
+              <span class="chip">Troubleshooting</span>
+              <span class="chip">Network Security Fundamentals</span>
+              <span class="chip">Data Protection</span>
+            </div>
+          </div>
+          <div class="skill-row">
+            <strong>Professional Strengths</strong>
+            <div class="chips">
+              <span class="chip">Analytical Thinking</span>
+              <span class="chip">Problem Solving</span>
+              <span class="chip">Research</span>
+              <span class="chip">Adaptability</span>
+              <span class="chip">Multidisciplinary Analysis</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="languages">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="kicker">06 / Communication</div>
+          <h2>Languages</h2>
+        </div>
+
+        <div class="language-list">
+          <div class="language"><strong>Arabic</strong><span>Native</span></div>
+          <div class="language"><strong>French</strong><span>Professional proficiency</span></div>
+          <div class="language"><strong>English</strong><span>Developing professional proficiency</span></div>
+          <div class="language"><strong>German</strong><span>Basic proficiency</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="wrap">
+        <div class="contact-panel">
+          <div>
+            <div class="kicker">07 / Contact</div>
+            <h2>Let’s Connect.</h2>
+            <p>Open to international opportunities in AI, cybersecurity, data analytics, and secure information systems.</p>
+            <p><strong>Email:</strong> lamiskareche5@gmail.com</p>
+            <p><strong>Location:</strong> Algiers, Algeria</p>
+          </div>
+          <a class="button primary" href="mailto:lamiskareche5@gmail.com?subject=Professional%20Opportunity">Email Me ↗</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <span>© <span id="year">2026</span> Lamis Kareche</span>
+      <span>Artificial Intelligence · Cybersecurity · Financial Systems</span>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+  </script>
 </body>
 </html>
